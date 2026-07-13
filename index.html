@@ -1134,6 +1134,52 @@
       color: var(--text2);
     }
 
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+ 
+    .badge-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+ 
+    .badge-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 30px rgba(0, 212, 255, 0.1);
+    }
+ 
+    .badge-preview {
+      width: 100%;
+      height: 200px;
+      background: #fdfdfd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+ 
+    .badge-preview img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+      user-select: none;
+    }
+ 
+    .badge-info {
+      padding: 1.1rem 1.4rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
     /* Footer */
     footer {
       background: var(--bg2);
@@ -2472,6 +2518,59 @@
   </div>
 </div>
 
+<div class="page" id="page-badges">
+  <div class="sec-wrap">
+    <h2 class="sec-title">Badges</h2>
+    <p class="sec-sub">Digital skill badges earned from hands-on learning paths and micro-credentials.</p>
+ 
+    <div class="badge-grid">
+ 
+      <div class="badge-card">
+        <div class="badge-preview">
+          <img src="assets/images/badges/ai-agents-mongodb-badge.png" alt="Building AI Agents with MongoDB Badge">
+        </div>
+        <div class="badge-info">
+          <span class="cert-org">MongoDB</span>
+          <h3 class="cert-name">Building AI Agents with MongoDB</h3>
+          <div class="cert-footer">
+            <span class="cert-status"><i class="fas fa-check-circle"></i> Earned</span>
+            <button class="cert-view-link" onclick="openCert('assets/images/badges/ai-agents-mongodb-badge.png', 'Building AI Agents with MongoDB', 'MongoDB Skill Badge · 5/29/2026')">Click to view ↗</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="badge-card">
+        <div class="badge-preview">
+          <img src="assets/images/badges/vector-search-fundamentals-badge.png" alt="Building AI-Powered Search with MongoDB Vector Search Badge">
+        </div>
+        <div class="badge-info">
+          <span class="cert-org">MongoDB</span>
+          <h3 class="cert-name">Building AI-Powered Search with MongoDB Vector Search</h3>
+          <div class="cert-footer">
+            <span class="cert-status"><i class="fas fa-check-circle"></i> Earned</span>
+            <button class="cert-view-link" onclick="openCert('assets/images/badges/vector-search-fundamentals-badge.png', 'Building AI-Powered Search with MongoDB Vector Search', 'MongoDB Skill Badge · 7/13/2026')">Click to view ↗</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="badge-card">
+        <div class="badge-preview">
+          <img src="assets/images/badges/genai-apps-mongodb-badge.png" alt="Building GenAI Applications with MongoDB Badge">
+        </div>
+        <div class="badge-info">
+          <span class="cert-org">MongoDB</span>
+          <h3 class="cert-name">Building GenAI Applications with MongoDB</h3>
+          <div class="cert-footer">
+            <span class="cert-status"><i class="fas fa-check-circle"></i> Earned</span>
+            <button class="cert-view-link" onclick="openCert('assets/images/badges/genai-apps-mongodb-badge.png', 'Building GenAI Applications with MongoDB', 'MongoDB Learning Badge · 5/29/2026')">Click to view ↗</button>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</div>
+
 <!-- CERTIFICATE MODAL (view only, no download) -->
 <div id="certModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:9999; align-items:center; justify-content:center; padding:1.5rem;">
   <div style="background:var(--bg2); border:1px solid var(--border); border-radius:18px; padding:1.5rem; max-width:720px; width:100%; position:relative; max-height:90vh; overflow:auto;">
@@ -2561,6 +2660,7 @@
       <a onclick="showPage('projects')">Projects</a>
       <a onclick="showPage('skills')">Skills</a>
       <a onclick="showPage('certificates')">Certificates</a>
+      <a onclick="showPage('badges')" id="nav-badges">Badges</a>
       <a onclick="showPage('contact')">Contact</a>
     </div>
     <p><span>Dihini Nihinsa</span> · BSc Data Science · SLIIT</p>
@@ -2583,7 +2683,7 @@
     }
 
     window.addEventListener('scroll', () => {
-      const sections = ['home', 'about', 'projects', 'skills', 'certificates', 'contact'];
+      const sections = ['home', 'about', 'projects', 'skills', 'certificates', 'badges', 'contact'];      
       let current = 'home';
       const scrollPos = window.scrollY + 100;
 
